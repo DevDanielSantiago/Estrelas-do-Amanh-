@@ -1,0 +1,407 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  width: 656px;
+
+  padding: 64px;
+
+  background-color: var(--surface-primary);
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Opera */
+  }
+}
+
+.c-form_header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .c-form_nav {
+    display: flex;
+    gap: 8px;
+
+    .c-form_nav-image {
+      width: 24px;
+      height: 24px;
+    }
+
+    .c-form_nav_name {
+      font: 400 16px/150% var(--poppings);
+      letter-spacing: 0%;
+
+      color: var(--text-secondary);
+    }
+  }
+
+  .c-form_info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .c-form_info-title {
+      font: 600 24px/125% var(--poppings);
+      letter-spacing: 0%;
+
+      color: var(--text-primary);
+    }
+
+    .c-form_info-description {
+      font: 400 16px/150% var(--poppings);
+      letter-spacing: 0%;
+
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.c-form_section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+
+  .c-form_legend {
+    font: 600 16px/125% var(--poppings);
+    letter-spacing: 0%;
+
+    color: var(--text-primary);
+
+    margin-bottom: 24px;
+  }
+
+  .c-form_fields {
+    display: flex;
+    flex-direction: column;
+
+    gap: 48px;
+  }
+}
+
+.label {
+  font: 400 14px/140% var(--poppings);
+  letter-spacing: 0%;
+
+  color: var(--text-secondary);
+}
+
+.input,
+.select,
+.textarea {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 16px;
+
+  margin-top: 2px;
+  gap: 8px;
+
+  width: 100%;
+  height: 48px;
+
+  background: #ffffff;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 1;
+
+  font: 400 16px/150% var(--poppings);
+  letter-spacing: 0%;
+
+  color: var(--text-primary);
+
+  &:focus {
+    border: 2px solid #f3541c;
+    outline: 0.25rem solid var(--surface-secondary);
+  }
+
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  &[type="date"] {
+    cursor: text;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &[disabled] {
+    background-color: var(--surface-disabld);
+    border: 1px solid var(--stroke-default);
+    color: var(--text-primary);
+  }
+
+  &:invalid {
+    border: 0.125rem solid var(--semantic-error);
+  }
+
+  &:invalid + .c-error {
+    display: flex;
+  }
+}
+
+.textarea {
+  width: 100%;
+  height: 120px;
+}
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-image: url(../assets/arrow-down.svg);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+
+  padding-right: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.c-radio_option {
+  background: #ffffff;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 128px;
+
+  &:has(.c-radio_option-value:checked) {
+    border: 2px solid var(--stroke-highlight);
+
+    & .c-radio_image {
+      background-image: url(../assets//radio-checked.svg);
+    }
+  }
+
+  .c-radio_option-value {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    width: 22px;
+    height: 22px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .c-radio_option-image {
+    position: absolute;
+
+    bottom: 45px;
+  }
+
+  .c-radio_option-name {
+    font: 500 16px/150% var(--montserrat);
+    letter-spacing: 0%;
+
+    color: #000000;
+
+    position: absolute;
+
+    bottom: 16px;
+  }
+
+  & input,
+  & input:focus,
+  & input:hover {
+    all: unset;
+  }
+
+  .c-radio_image {
+    background-image: url(../assets/radio-default.svg);
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  &:hover,
+  &:focus-within {
+    cursor: pointer;
+
+    border: 1px solid var(--stroke-highlight);
+
+    & .c-radio_image {
+      background-image: url(../assets/radio-hover.svg);
+    }
+  }
+}
+
+.c-form_terms {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+
+  position: relative;
+
+  gap: 2rem;
+
+  & input,
+  & input:focus,
+  & input:hover {
+    all: unset;
+  }
+
+  .c-checkbox_image {
+    background-image: url(../assets/checkbox-default.svg);
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+  }
+
+  &:hover,
+  &:focus-within {
+    cursor: pointer;
+
+    & .c-checkbox_image {
+      background-image: url(../assets/checkbox-hover.svg);
+    }
+  }
+
+  &:has(.c-form_terms-check:checked) {
+    & .c-checkbox_image {
+      background-image: url(../assets/checkbox-checked.svg);
+    }
+  }
+}
+
+.c-form_terms-description {
+  font: 400 16px/150% var(--poppings);
+  letter-spacing: 0%;
+
+  color: var(--text-secondary);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & .c-form_terms-highlight {
+    font: 500 16px/150% var(--poppings);
+    letter-spacing: 0%;
+
+    color: var(--text-highlight);
+  }
+}
+
+.c-form_footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  .c-form_button-save {
+    all: unset;
+    text-align: center;
+
+    width: 183px;
+    min-width: 120px;
+    height: 48px;
+
+    background: #ffffff;
+    border: 1px solid #e43a12;
+    border-radius: 8px;
+
+    font: 500 16px/150% var(--poppings);
+    letter-spacing: 0%;
+
+    color: var(--text-highlight);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+
+      color: var(--brand-dark);
+      outline: 0.25rem solid var(--surface-secondary);
+    }
+  }
+
+  .c-form_button-submit {
+    all: unset;
+    text-align: center;
+
+    width: 174px;
+    min-width: 120px;
+    height: 48px;
+
+    background: #e43a12;
+    border-radius: 8px;
+
+    font: 500 16px/150% var(--poppings);
+    letter-spacing: 0%;
+    border: none;
+
+    color: var(--surface-primary);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+
+      background-color: var(--brand-mid);
+    }
+  }
+}
+
+.c-form_fieldset {
+  border: 0px;
+}
+
+.c-input_wrapper:has([disabled]) {
+  opacity: 0.5;
+}
+
+.c-input_wrapper {
+  & small {
+    display: inline-block;
+
+    font: 400 14px/140% var(--poppings);
+    letter-spacing: 0;
+    color: #78716c;
+  }
+}
+
+.c-error {
+  display: none;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: -20px;
+}
+
+.c-invalid {
+  font: 400 14px/140% var(--poppings);
+  letter-spacing: 0;
+
+  color: var(--semantic-error);
+}
